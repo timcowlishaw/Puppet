@@ -1,4 +1,4 @@
-node riwaka {
+if $hostname == "riwaka" {
   include base
   include ssh
   include sudo
@@ -26,9 +26,7 @@ node riwaka {
   #mail client
   #chat client
   #terminal
-}
-
-node motueka {
+} elsif $hostname == "motueka" {
  # include base
  # include ssd
  # include ssh
@@ -67,4 +65,9 @@ node motueka {
   #mail client
   #chat client
   #terminal
+} else { 
+  include base
+  include ssh
+  include sudo
+  include tim
 }
