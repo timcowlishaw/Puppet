@@ -57,10 +57,10 @@ bash_prompt() {
 	local BGC='\[\033[46m\]'
 	local BGW='\[\033[47m\]'
 
-  local C1 = R
-  local EMC1 = EMR
-  local C2 = C
-  local EMC2 = EMC
+  local C1=$R
+  local EMC1=$EMR
+  local C2=$C
+  local EMC2=$EMC
 
 	PS1="${W}[\t${W}] ${C1}[${EMC1}\u${C1}@${EMC1}\h ${EMC2}\${NEW_PWD}\`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\\\\\*\ \(.+\)$/\ \(\\\\\\\\\1\)\/\`${C1}] ${EMW}\\$ ${W}${NONE}"
 }

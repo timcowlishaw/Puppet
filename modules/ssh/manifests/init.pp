@@ -1,6 +1,6 @@
-class {'ssh':
-  package {'task-ssh-server'
-    ensure => installed,
+class ssh {
+  package {'task-ssh-server':
+    ensure => "installed",
   }
 
   augeas {'dissalow_root_ssh_login':
@@ -10,7 +10,7 @@ class {'ssh':
     ],
   }
 
-  service {'sshd':
+  service {'ssh':
     ensure => running,
     enable => true,
     hasstatus => true,
