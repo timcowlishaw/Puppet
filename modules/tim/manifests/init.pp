@@ -29,7 +29,7 @@ class tim {
   }
 
   file {"/home/tim/.bashrc":
-    source => "puppet://modules/tim/bashrc",
+    source => "puppet:///modules/tim/bashrc",
     owner => "tim",
     group => "tim",
     mode => "640",
