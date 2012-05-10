@@ -11,8 +11,11 @@ class tim {
     $prompt_colour_1 = 'R'
     $prompt_colour_2 = 'C'
   } elsif $hostname == "riwaka" {
-    $prompt_colour_1 = 'Y'
-    $prompt_colour_2 = 'G'
+    $prompt_colour_1 = 'R'
+    $prompt_colour_2 = 'M'
+  } elsif $hostname == "kohatu" {
+    $prompt_colour_1 = 'B'
+    $prompt_colour_2 = 'C'
   } else {
     $prompt_colour_1 = 'W'
     $prompt_colour_2 = 'W'
@@ -26,10 +29,11 @@ class tim {
   }
 
   file {"/home/tim/.bashrc":
-    source => "/etc/puppet/modules/tim/files/bashrc",
+    source => "puppet://modules/tim/bashrc",
     owner => "tim",
     group => "tim",
     mode => "640",
   }
+
   Class['base'] -> Class['tim']
 }
