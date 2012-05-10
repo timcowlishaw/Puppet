@@ -57,26 +57,31 @@ bash_prompt() {
 	local BGC='\[\033[46m\]'
 	local BGW='\[\033[47m\]'
 
-  local C1=$R
-  local EMC1=$EMR
-  local C2=$C
-  local EMC2=$EMC
+  local C1=$<%=prompt_colour_1 %>
+  local EMC1=$EM<%=prompt_colour_1 %>
+  local C2=$<%=prompt_colour_2 %>
+  local EMC2=$EM<%=prompt_colour_2 %>
 
 	PS1="${W}[\t${W}] ${C1}[${EMC1}\u${C1}@${EMC1}\h ${EMC2}\${NEW_PWD}\`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\\\\\*\ \(.+\)$/\ \(\\\\\\\\\1\)\/\`${C1}] ${EMW}\\$ ${W}${NONE}"
 }
-#
+
 PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt
-
-alias less='less -R'
+shopt -s histappend
+PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
 
 if [[ -s /etc/bash_completion.d/git ]] ; then source /etc/bash_completion.d/git ; fi
 if [[ -s /usr/local/etc/bash_completion.d/git-completion.bash ]] ; then source /usr/local/etc/bash_completion.d/git-completion.bash ; fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+alias less='less -R'
+alias ack='ack-grep'
 
 export EDITOR="vim"
-
 export GIT_EDITOR="vim"
-
-shopt -s histappend
-PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
+export GEM_EDITOR="vim"
+export SCALA_HOME="/home/tim/.scala"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export CLICOLOR=1
+export PATH=$HOME/.rvm/bin:$SCALA_HOME/bin:home/tim/.cabal/bin:/home/tim/bin:$PATH
