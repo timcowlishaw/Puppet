@@ -1,5 +1,5 @@
 class ssh {
-  package {'task-ssh-server':
+  package {'openssh-server':
     ensure => "installed",
   }
 
