@@ -5,6 +5,8 @@ node basenode {
  include tim
 }
 
+node default inherits basenode {}
+
 node 'riwaka.timcowlishaw.co.uk' inherits basenode {
   #include ruby
   #include rvm
