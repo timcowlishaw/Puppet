@@ -1,0 +1,8 @@
+:backends: - gpg
+:logger: console
+:hierarchy: - %{calling_module}/%{calling_class}
+            - %{calling_module}
+            - common
+:gpg:
+  :datadir: /home/tim/puppet/hiera/data
+  :key_dir: /home/tim/puppet/hiera/keyrings/private
