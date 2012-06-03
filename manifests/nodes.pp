@@ -2,11 +2,11 @@ node default {
  include base
  include ssh
  include sudo
+ include ruby
  include tim
 }
 
 node 'riwaka' inherits default {
-  #include ruby
   #include rvm
   #include gui
   #include vim
