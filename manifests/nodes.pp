@@ -1,13 +1,11 @@
-node basenode {
+node default {
  include base
  include ssh
  include sudo
  include tim
 }
 
-node default inherits basenode {}
-
-node 'riwaka.timcowlishaw.co.uk' inherits basenode {
+node 'riwaka' inherits default {
   #include ruby
   #include rvm
   #include gui
@@ -33,7 +31,7 @@ node 'riwaka.timcowlishaw.co.uk' inherits basenode {
   #terminal
 }
 
-node 'motueka.timcowlishaw.co.uk' inherits basenode {
+node 'motueka' inherits default {
  # include base
  # include ssd
  # include ssh

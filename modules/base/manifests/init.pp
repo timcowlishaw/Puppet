@@ -1,5 +1,4 @@
 class base {
-  require => Class['ruby']
   package { "build-essential": ensure => "installed" }
   package { "bash-completion": ensure => "installed" }
   package { "git-core": ensure => "installed" }
