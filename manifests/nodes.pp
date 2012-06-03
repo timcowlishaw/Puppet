@@ -5,7 +5,7 @@ node basenode {
  include tim
 }
 
-node 'riwaka.timcowlishaw.co.uk' extends basenode {
+node 'riwaka.timcowlishaw.co.uk' inherits basenode {
   #include ruby
   #include rvm
   #include gui
@@ -31,7 +31,7 @@ node 'riwaka.timcowlishaw.co.uk' extends basenode {
   #terminal
 }
 
-node 'motueka.timcowlishaw.co.uk' extends basenode {
+node 'motueka.timcowlishaw.co.uk' inherits basenode {
  # include base
  # include ssd
  # include ssh
