@@ -4,5 +4,5 @@
             - %{calling_module}
             - common
 :gpg:
-  :datadir: /home/tim/puppet/hiera/data
-  :key_dir: /home/tim/puppet/hiera/keyrings/private
+  :datadir: hiera/data
+  :key_dir: hiera/keyrings/private
