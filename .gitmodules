@@ -1,0 +1,6 @@
+[submodule "modules/dropbox"]
+	path = modules/dropbox
+	url = git://github.com/cwarden/puppet-dropbox.git
+[submodule "modules/stdlib"]
+	path = modules/stdlib
+	url = git://github.com/puppetlabs/puppetlabs-stdlib.git
