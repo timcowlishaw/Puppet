@@ -1,0 +1,3 @@
+deb http://ftp.uk.debian.org/debian/ sid main
+deb-src http://ftp.uk.debian.org/debian/ sid main
+

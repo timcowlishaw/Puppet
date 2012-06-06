@@ -1,0 +1,5 @@
+Explanation: Use Wheezy by default, while allowing us to specify individual packages from sid if necessary
+Package: *
+Pin: release a=wheezy
+Pin-Priority: 500
+

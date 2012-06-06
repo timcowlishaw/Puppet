@@ -16,5 +16,6 @@ class ssh {
     hasstatus => true,
     hasrestart => true,
   }
+  Class['base'] -> Class['ssh']
 }
 
