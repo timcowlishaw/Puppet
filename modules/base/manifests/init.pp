@@ -3,13 +3,14 @@ class base {
   include apt-defaults
 
   apt::force {"puppet":
-    release: "testing"
+    release => "testing"
   }
 
   package { "build-essential": ensure => "installed" }
   package { "bash-completion": ensure => "installed" }
   package { "git-core": ensure => "installed" }
   package { "puppet": ensure => "installed" }
+  package { "curl": ensure => "installed" }
   package { "wget": ensure => "installed" }
   package { "augeas-tools": ensure => "installed"}
   package { "hiera":
