@@ -35,14 +35,11 @@ class tim {
     mode => "640",
   }
 
-  class { 'dropbox::config':
-    user     => hiera('username'),
-    password => hiera('password'),
-    dx_uid   => 'tim',
-    dx_gid   => 'tim',
-    dx_home  => '/usr/local/dropbox'
+  class { 'dropbox':
+    user     => 'tim'
+    dropbox_user     => hiera('username'),
+    dropbox_password => hiera('password'),
   }
-  include dropbox
 
   Class['base'] -> Class['tim']
 }
