@@ -62,7 +62,7 @@ class dropbox(
     group => 'dropbox',
     unless => "/usr/bin/test -f /home/${user}/.dropox/sigstore.dbx",
     creates => "/home/${user}/.dropbox/sigstore.dbx",
-    require => File['authorize.rb'],
+    require => File['/tmp/authorize.rb'],
     before => Service['dropbox']
   }
 
