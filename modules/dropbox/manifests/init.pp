@@ -15,7 +15,7 @@ class dropbox(
   }
 
   exec { 'download-dropbox-cli':
-    command => "wget -O /tmp/dropbox.py \"https://www.dropbox.com/download?dl=packages/dropbox.py\"",
+    command => "/usr/bin/wget -O /tmp/dropbox.py \"https://www.dropbox.com/download?dl=packages/dropbox.py\"",
     unless  => '/usr/bin/test -f /tmp/dropbox.py'
   }
 
@@ -26,14 +26,14 @@ class dropbox(
   }
 
   exec { 'download-dropbox':
-    command => "wget -O /tmp/dropbox.tar.gz \"http://www.dropbox.com/download/?plat=lnx.${download_arch}\"",
+    command => "/usr/bin/wget -O /tmp/dropbox.tar.gz \"http://www.dropbox.com/download/?plat=lnx.${download_arch}\"",
     unless => "/usr/bin/test -d ~${user}/.dropbox-dist",
     require => User[$user],
   }
 
   exec { 'install-dropbox':
-    command => "tar -zxvf /tmp/dropbox.tar.gz -C ~${user}",
-    unless => "test -d ~${user}/.dropbox-dist",
+    command => "/bin/tar -zxvf /tmp/dropbox.tar.gz -C ~${user}",
+    unless => "/usr/bin/test -d ~${user}/.dropbox-dist",
     require => Exec['download-dropbox'],
   }
 
