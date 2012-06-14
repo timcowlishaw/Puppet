@@ -36,7 +36,7 @@ class tim {
   }
 
   class { 'dropbox':
-    user     => 'tim'
+    user     => 'tim',
     dropbox_user     => hiera('username'),
     dropbox_password => hiera('password'),
   }
