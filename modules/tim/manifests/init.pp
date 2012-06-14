@@ -41,5 +41,5 @@ class tim {
     dropbox_password => hiera('password'),
   }
 
-  Class['tim'] -> Class['base']
+  Class['base'] -> Class['tim']
 }

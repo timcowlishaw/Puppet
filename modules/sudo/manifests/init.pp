@@ -17,6 +17,6 @@ class sudo {
   exec {'/usr/bin/passwd -d root': }
   exec {'/usr/bin/passwd -l root': }
 
-  Class['sudo'] -> Class['base']
+  Class['base'] -> Class['sudo']
 }
 
