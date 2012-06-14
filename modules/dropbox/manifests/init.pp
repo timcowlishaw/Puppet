@@ -77,6 +77,5 @@ class dropbox(
     require => File['/etc/init.d/dropbox']
   }
 
-  Class['dropbox'] -> User[$user]
   Class['dropbox'] -> Class['base']
 }
