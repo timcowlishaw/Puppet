@@ -4,28 +4,36 @@ if [[ $UID -ne 0 ]]; then
   exit 1
 fi
 echo "Installing programs we need to run puppet..."
-apt-get install git-core ruby-dev rubygems
+apt-get install git-core ruby-dev rubygems curl -y
 gem install hiera hiera-puppet hiera-gpg
 echo "Getting and installing puppet..."
 cd /tmp
+curl -O http://ftp.uk.debian.org/debian/pool/main/p/puppet/puppet-common_2.7.14-1_all.deb
 curl -O http://ftp.uk.debian.org/debian/pool/main/p/puppet/puppet_2.7.14-1_all.deb
+dpkg -i puppet-common_2.7.14-1_all.deb
 dpkg -i puppet_2.7.14-1_all.deb
-echo "Generating ssh key..."
-ssh-keygen
-echo "Key generated. Please add this as a deploy key at https://github.com/timcowlishaw/Puppet/admin/keys, then press any key to continue."
+apt-get -f install -y
+if [ ! -f /root/.ssh/id_rsa ]
+then
+  echo "Generating ssh key..."
+  ssh-keygen -N '' -f /root/.ssh/id_rsa
+fi
+echo "Please add this machine's key as a deploy key at https://github.com/timcowlishaw/Puppet/admin/keys, then press any key to continue."
 cat /root/.ssh/id_rsa.pub
 read -n 1 -s
 echo "Checking out puppet config..."
+rm -rf /etc/puppet
 git clone git@github.com:timcowlishaw/Puppet.git /etc/puppet
 cd /etc/puppet
 git submodule init
 git submodule update
+mkdir /etc/puppet/files
 echo "Where is the puppet private key file? Either locally or available via SCP."
-read private_key_location -prompt '> '
-echo "Getting the puppet private keychain..."
-scp -r $private_key_location /etc/puppet/hiera/keychains/private
-chown -r root:root /etc/puppet/hiera/keychains/private
-chmod 700 /etc/puppet/hiera/keychains/private
+read private_key_location
+echo "Getting the puppet private keyring..."
+scp -r $private_key_location /etc/puppet/hiera/keyrings/private
+chown -R root:root /etc/puppet/hiera/keyrings/private
+chmod 700 /etc/puppet/hiera/keyrings/private
 echo "About to do a test run of puppet. Watch for errors! Press a key to continue."
 read -n 1 -s
 puppet apply /etc/puppet/manifests/site.pp --noop --verbose
