@@ -5,5 +5,5 @@ class ruby {
   package {'rubygems':
     ensure => "installed",
   }
-  Class['base'] -> Class['ruby']
+  Class['ruby'] -> Class['base']
 }
