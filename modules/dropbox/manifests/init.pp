@@ -52,7 +52,7 @@ class dropbox(
   }
 
   file { '/tmp/authorize.rb':
-    source => "puppet:///modules/dropbox/authorize.rb"
+    source => "puppet:///modules/dropbox/authorize.rb",
     owner => $user,
     group => $user,
     mode => 700,
@@ -60,8 +60,8 @@ class dropbox(
 
   exec { 'authorize-dropbox':
     command => "/tmp/authorize.rb ${user} ${dropbox_user} ${dropbox_password}",
-    user => $user
-    group => 'dropbox'
+    user => $user,
+    group => 'dropbox',
     creates => "~${user}/.dropbox/sigstore.dbx",
     require => File['authorize.rb'],
     before => Service['dropbox']
