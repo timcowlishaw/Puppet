@@ -16,7 +16,7 @@ class dropbox(
 
   exec { 'download-dropbox-cli':
     command => "wget -O /tmp/dropbox.py \"https://www.dropbox.com/download?dl=packages/dropbox.py\"",
-    unless  => 'test -f /tmp/dropbox.py'
+    unless  => '/usr/bin/test -f /tmp/dropbox.py'
   }
 
   file { '/usr/local/bin/dropbox':
@@ -27,7 +27,7 @@ class dropbox(
 
   exec { 'download-dropbox':
     command => "wget -O /tmp/dropbox.tar.gz \"http://www.dropbox.com/download/?plat=lnx.${download_arch}\"",
-    unless => "test -d ~${user}/.dropbox-dist",
+    unless => "/usr/bin/test -d ~${user}/.dropbox-dist",
     require => User[$user],
   }
 
@@ -60,6 +60,7 @@ class dropbox(
     command => "/tmp/authorize.rb ${user} ${dropbox_user} ${dropbox_password}",
     user => $user,
     group => 'dropbox',
+    unless => "/usr/bin/test -f /home/${user}/.dropox/sigstore.dbx",
     creates => "/home/${user}/.dropbox/sigstore.dbx",
     require => File['authorize.rb'],
     before => Service['dropbox']
