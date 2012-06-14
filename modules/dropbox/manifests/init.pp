@@ -60,7 +60,7 @@ class dropbox(
     command => "/tmp/authorize.rb ${user} ${dropbox_user} ${dropbox_password}",
     user => $user,
     group => 'dropbox',
-    creates => "~${user}/.dropbox/sigstore.dbx",
+    creates => "/home/${user}/.dropbox/sigstore.dbx",
     require => File['authorize.rb'],
     before => Service['dropbox']
   }
