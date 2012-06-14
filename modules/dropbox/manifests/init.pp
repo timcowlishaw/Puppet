@@ -14,8 +14,6 @@ class dropbox(
     ensure => present,
   }
 
-  User[$user] { groups +> ['dropbox'] }
-
   exec { 'download-dropbox-cli':
     command => "wget -O /tmp/dropbox.py \"https://www.dropbox.com/download?dl=packages/dropbox.py\"",
     unless  => 'test -f /tmp/dropbox.py'

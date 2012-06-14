@@ -2,7 +2,7 @@ class tim {
   user {"tim":
     ensure => present,
     shell  => "/bin/bash",
-    groups => ["sudo","cdrom","floppy","audio","dip","video","plugdev"],
+    groups => ["sudo","cdrom","floppy","audio","dip","video","plugdev", "dropbox"],
     home => "/home/tim",
     managehome => "true",
   }
