@@ -74,7 +74,7 @@ class dropbox(
   service { 'dropbox':
     ensure  => 'running',
     enable => 'true',
-    require => File['dropbox']
+    require => File['/etc/init.d/dropbox']
   }
 
   Class['dropbox'] -> User[$user]
