@@ -6,6 +6,11 @@ node default {
  include tim
 }
 
+
+node 'cascade' inherits default {
+
+}
+
 node 'riwaka' inherits default {
   #include rvm
   #include gui
