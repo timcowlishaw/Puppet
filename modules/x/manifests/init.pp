@@ -8,10 +8,27 @@ class x {
   }
 
   #package { "xorg": ensure => "installed" }
-  package { "xmonad": ensure => "installed" }
-  package { "trayer": ensure => "installed" }
+  package { "xmonad":
+    ensure => "installed",
+    require => Apt::Force["xorg"],
+  }
+  package { "trayer":i
+    ensure => "installed",
+    require => Apt::Force["xorg"],
+ }
   #package { "rxvt-unicode-256color": ensure => "installed" }
-  package { "parcellite": ensure => "installed" }
-  package { "dmenu": ensure => "installed"}
-  package { "slim": ensure => "installed"}
+  package { "parcellite":
+    ensure => "installed",
+    require => Apt::Force["xorg"],
+  }
+
+  package { "dmenu":
+    ensure => "installed"
+    require => Apt::Force["xorg"],
+  }
+
+  package { "slim":
+    ensure => "installed",
+    require => Apt::Force["xorg"],
+  }
 }
