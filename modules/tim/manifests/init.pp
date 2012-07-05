@@ -16,6 +16,9 @@ class tim {
   } elsif $hostname == "kohatu" {
     $prompt_colour_1 = 'B'
     $prompt_colour_2 = 'C'
+  } elsif $hostname == "cascade" {
+    $prompt_colour_1 = 'EMR'
+    $prompt_colour_2 = 'Y'
   } else {
     $prompt_colour_1 = 'W'
     $prompt_colour_2 = 'W'
