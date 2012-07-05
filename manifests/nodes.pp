@@ -8,7 +8,7 @@ node default {
 
 
 node 'cascade' inherits default {
-
+  include x
 }
 
 node 'riwaka' inherits default {
