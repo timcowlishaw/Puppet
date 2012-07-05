@@ -9,7 +9,7 @@ class base {
   package { "build-essential": ensure => "installed" }
   package { "bash-completion": ensure => "installed" }
   package { "git-core": ensure => "installed" }
-  package { "puppet": ensure => "installed" }
+  #package { "puppet": ensure => "installed" }
   package { "curl": ensure => "installed" }
   package { "wget": ensure => "installed" }
   package { "vim": ensure => "installed" }
