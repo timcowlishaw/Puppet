@@ -9,4 +9,5 @@ class x {
   package { "rxvt-unicode-256color": ensure => "installed" }
   package { "parcellite": ensure => "installed" }
   package { "dmenu": ensure => "installed"}
+  package { "slim": ensure => "installed"}
 }
