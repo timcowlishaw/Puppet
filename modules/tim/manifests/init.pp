@@ -28,11 +28,16 @@ class tim {
     mode => "640",
   }
 
+  exec {"clone_dotfiles_repo":
+    command => "git clone git@github.com:timcowlishaw/dotfiles.git /home/tim/.dotfiles && /home/tim/.dotfiles/bin/install.rb"
+    creates => "/home/tim/.dotfiles",
+  }
+
   #class { 'dropbox':
   #  user     => 'tim',
   #  dropbox_user     => hiera('username'),
   #  dropbox_password => hiera('password'),
   #}
-
+  Class['ruby'] -> Class['tim']
   Class['base'] -> Class['tim']
 }
