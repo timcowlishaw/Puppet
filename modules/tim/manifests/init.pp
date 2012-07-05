@@ -21,25 +21,18 @@ class tim {
     $prompt_colour_2 = 'W'
   }
 
-  file {"/home/tim/.bash_profile":
-    content => template("tim/bash_profile.erb"),
+  file {"/home/tim/.host_prompt_colours":
+    content => template("tim/host_prompt_colours.erb"),
     owner => "tim",
     group => "tim",
     mode => "640",
   }
 
-  file {"/home/tim/.bashrc":
-    source => "puppet:///modules/tim/bashrc",
-    owner => "tim",
-    group => "tim",
-    mode => "640",
-  }
-
-  class { 'dropbox':
-    user     => 'tim',
-    dropbox_user     => hiera('username'),
-    dropbox_password => hiera('password'),
-  }
+  #class { 'dropbox':
+  #  user     => 'tim',
+  #  dropbox_user     => hiera('username'),
+  #  dropbox_password => hiera('password'),
+  #}
 
   Class['base'] -> Class['tim']
 }
