@@ -12,7 +12,7 @@ class x {
     ensure => "installed",
     require => Apt::Force["xorg"],
   }
-  package { "trayer":i
+  package { "trayer":
     ensure => "installed",
     require => Apt::Force["xorg"],
  }
@@ -23,7 +23,7 @@ class x {
   }
 
   package { "dmenu":
-    ensure => "installed"
+    ensure => "installed",
     require => Apt::Force["xorg"],
   }
 
