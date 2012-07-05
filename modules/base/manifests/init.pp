@@ -12,6 +12,7 @@ class base {
   package { "puppet": ensure => "installed" }
   package { "curl": ensure => "installed" }
   package { "wget": ensure => "installed" }
+  package { "vim": ensure => "installed" }
   package { "augeas-tools": ensure => "installed"}
   package { "hiera":
     provider => "gem",
