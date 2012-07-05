@@ -39,7 +39,8 @@ class tim {
     command => "/home/tim/.dotfiles/bin/install.rb",
     user => "tim",
     group => "tim",
-    environment => "HOME=/home/tim"
+    environment => "HOME=/home/tim",
+    require => Exec["clone_dotfiles_repo"],
   }
 
   #class { 'dropbox':
