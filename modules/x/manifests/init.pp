@@ -1,10 +1,16 @@
 class x {
   apt::force {"xorg":
-    release => "testing"
+    release => "testing",
   }
 
+  apt::force {"ncurses-term":
+    release => "testing",
+  }
+
+
   apt::force {"rxvt-unicode-256color":
-    release => "testing"
+    release => "testing",
+    require => Apt::Force["ncurses-term"],
   }
 
   #package { "xorg": ensure => "installed" }
@@ -29,6 +35,6 @@ class x {
 
   package { "slim":
     ensure => "installed",
-    require => Apt::Force["xorg"],
+    require => Apt::force["xorg"],
   }
 }
