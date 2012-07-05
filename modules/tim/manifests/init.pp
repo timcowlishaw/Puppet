@@ -29,7 +29,7 @@ class tim {
   }
 
   exec {"clone_dotfiles_repo":
-    command => "git clone git@github.com:timcowlishaw/dotfiles.git /home/tim/.dotfiles && /home/tim/.dotfiles/bin/install.rb"
+    command => "git clone git@github.com:timcowlishaw/dotfiles.git /home/tim/.dotfiles && /home/tim/.dotfiles/bin/install.rb",
     creates => "/home/tim/.dotfiles",
   }
 
