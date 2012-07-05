@@ -13,12 +13,17 @@ class x {
   }
 
   #package { "xorg": ensure => "installed" }
- 
+
   package { "xmonad":
     ensure => "installed",
     require => Apt::Force["xorg"],
   }
- 
+
+  package { "xmobar":
+    ensure => "installed",
+    require => Apt::Force["xorg"],
+  }
+
   package { "trayer":
     ensure => "installed",
     require => Apt::Force["xorg"],
