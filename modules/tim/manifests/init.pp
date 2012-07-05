@@ -29,8 +29,17 @@ class tim {
   }
 
   exec {"clone_dotfiles_repo":
-    command => "/usr/bin/git clone git@github.com:timcowlishaw/dotfiles.git /home/tim/.dotfiles && /home/tim/.dotfiles/bin/install.rb",
+    command => "/usr/bin/git clone git@github.com:timcowlishaw/dotfiles.git /home/tim/.dotfiles",
     creates => "/home/tim/.dotfiles",
+    user => "tim",
+    group => "tim",
+  }
+
+  exec {"setup_dotfile_symlinks":
+    command => "/home/tim/.dotfiles/bin/install.rb",
+    user => "tim",
+    group => "tim",
+    environment => "HOME=/home/tim"
   }
 
   #class { 'dropbox':
