@@ -7,17 +7,18 @@ class x {
     release => "testing",
   }
 
-
   apt::force {"rxvt-unicode-256color":
     release => "testing",
-    require => Apt::Force["ncurses-term"],
+    require => Apt::Force["xorg", "ncurses-term"],
   }
 
   #package { "xorg": ensure => "installed" }
+ 
   package { "xmonad":
     ensure => "installed",
     require => Apt::Force["xorg"],
   }
+ 
   package { "trayer":
     ensure => "installed",
     require => Apt::Force["xorg"],
@@ -35,6 +36,6 @@ class x {
 
   package { "slim":
     ensure => "installed",
-    require => Apt::force["xorg"],
+    require => Apt::Force["xorg"],
   }
 }
