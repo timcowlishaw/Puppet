@@ -3,6 +3,10 @@ class x {
     release => "testing"
   }
 
+  apt::force {"rxvt-unicode-256color":
+    release => "testing"
+  }
+
   package { "xorg": ensure => "installed" }
   package { "xmonad": ensure => "installed" }
   package { "trayer": ensure => "installed" }
