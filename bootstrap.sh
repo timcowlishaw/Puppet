@@ -4,7 +4,7 @@ if [[ $UID -ne 0 ]]; then
   exit 1
 fi
 echo "Installing programs we need to run puppet..."
-apt-get install git-core ruby-dev rubygems ruby curl -y
+apt-get install git-core ruby-dev1.8 rubygems1.8 ruby1.8 curl -y
 gem install hiera hiera-puppet hiera-gpg
 echo "Getting and installing puppet..."
 cd /tmp

@@ -11,10 +11,10 @@ class apt-defaults {
   }
   apt::pin {'stable-updates': release => 'stable/updates', priority => 1000 }
   apt::pin {'testing-updates': release => 'testing/updates', priority => 1000 }
-  apt::pin {'stable' : priority => 995 }
-  apt::pin {'testing': priority => 750 }
-  apt::pin {'unstable': priority => 50 }
-  apt::pin {'experimental': priority => 1}
+  apt::pin {'stable' : priority => 750 }
+  apt::pin {'testing': priority => 995 }
+  apt::pin {'unstable': priority => -10 }
+  apt::pin {'experimental': priority => -50}
 
   apt::source {'stable-updates':
     location => "http://security.debian.org",

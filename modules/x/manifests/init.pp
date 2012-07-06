@@ -1,44 +1,57 @@
 class x {
-  apt::force {"xorg":
-    release => "testing",
+  package {"xorg":
+    ensure => "installed",
   }
 
-  apt::force {"ncurses-term":
-    release => "testing",
+  package {"xserver-common":
+    ensure => "installed",
+  }
+  
+  package {"xserver-xorg":
+    ensure => "installed",
   }
 
-  apt::force {"rxvt-unicode-256color":
-    release => "testing",
-    require => Apt::Force["xorg", "ncurses-term"],
+  package {"ncurses-term":
+    ensure => "installed",
+  }
+  
+  package {"rxvt-unicode-256color":
+    ensure => "installed",
   }
 
   package { "xmonad":
     ensure => "installed",
-    require => Apt::Force["xorg"],
   }
  
   package { "trayer":
     ensure => "installed",
-    require => Apt::Force["xorg"],
  }
   
   package { "parcellite":
     ensure => "installed",
-    require => Apt::Force["xorg"],
   }
 
   package { "dmenu":
     ensure => "installed",
-    require => Apt::Force["xorg"],
   }
 
   package { "slim":
     ensure => "installed",
-    require => Apt::Force["xorg"],
   }
   
   package { "xscreensaver":
     ensure => "installed",
-    require => Apt::Force["xorg"],
+  }
+  
+  package { "pcmanfm":
+    ensure => "installed",
+  }
+  
+  package { "lxappearance":
+    ensure => "installed",
+  }
+  
+  package { "chromium-browser":
+    ensure => "installed",
   }
 }
