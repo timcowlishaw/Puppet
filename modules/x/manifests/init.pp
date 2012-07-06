@@ -22,7 +22,11 @@ class x {
   package { "xmonad":
     ensure => "installed",
   }
- 
+
+  package { "xmobar":
+    ensure => "installed",
+  }
+
   package { "trayer":
     ensure => "installed",
  }
