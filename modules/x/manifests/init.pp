@@ -12,8 +12,6 @@ class x {
     require => Apt::Force["xorg", "ncurses-term"],
   }
 
-  #package { "xorg": ensure => "installed" }
- 
   package { "xmonad":
     ensure => "installed",
     require => Apt::Force["xorg"],
@@ -23,7 +21,7 @@ class x {
     ensure => "installed",
     require => Apt::Force["xorg"],
  }
-  #package { "rxvt-unicode-256color": ensure => "installed" }
+  
   package { "parcellite":
     ensure => "installed",
     require => Apt::Force["xorg"],
@@ -35,6 +33,11 @@ class x {
   }
 
   package { "slim":
+    ensure => "installed",
+    require => Apt::Force["xorg"],
+  }
+  
+  package { "xscreensaver":
     ensure => "installed",
     require => Apt::Force["xorg"],
   }
