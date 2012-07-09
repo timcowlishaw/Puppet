@@ -9,6 +9,7 @@ node default {
 
 node 'cascade' inherits default {
   include x
+  include comms
 }
 
 node 'riwaka' inherits default {
