@@ -58,4 +58,17 @@ class x {
   package { "chromium-browser":
     ensure => "installed",
   }
-}
+  
+  file { "/etc/X11/Xsession.d/20x11-host-specific":
+    ensure => "present",
+    source => [
+   	"puppet:///modules/x/host-specific-xsession-${hostname}",
+	"puppet:///modules/x/host-specific-xsession-default",
+    ],
+    owner => "root",
+    group => "root",
+    mode => "644",
+  }
+}	
+
+

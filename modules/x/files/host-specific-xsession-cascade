@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xrandr --output VGA1 --left-of HDMI1
