@@ -10,6 +10,8 @@ node default {
 node 'cascade' inherits default {
   include x
   include comms
+  include audio
+  include spotify
 }
 
 node 'riwaka' inherits default {
