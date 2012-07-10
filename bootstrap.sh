@@ -4,14 +4,14 @@ if [[ $UID -ne 0 ]]; then
   exit 1
 fi
 echo "Installing programs we need to run puppet..."
-apt-get install git-core ruby-dev1.8 rubygems1.8 ruby1.8 curl -y
+apt-get install git-core ruby1.8-dev rubygems1.8 ruby1.8 curl -y
 gem install hiera hiera-puppet hiera-gpg
 echo "Getting and installing puppet..."
 cd /tmp
-curl -O http://ftp.uk.debian.org/debian/pool/main/p/puppet/puppet-common_2.7.14-1_all.deb
-curl -O http://ftp.uk.debian.org/debian/pool/main/p/puppet/puppet_2.7.14-1_all.deb
-dpkg -i puppet-common_2.7.14-1_all.deb
-dpkg -i puppet_2.7.14-1_all.deb
+curl -O http://ftp.uk.debian.org/debian/pool/main/p/puppet/puppet-common_2.7.17-1_all.deb
+curl -O http://ftp.uk.debian.org/debian/pool/main/p/puppet/puppet_2.7.17-1_all.deb
+dpkg -i puppet-common_2.7.17-1_all.deb
+dpkg -i puppet_2.7.17-1_all.deb
 apt-get -f install -y
 if [ ! -f /root/.ssh/id_rsa ]
 then
