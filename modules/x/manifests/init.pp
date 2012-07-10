@@ -58,7 +58,16 @@ class x {
   package { "chromium-browser":
     ensure => "installed",
   }
-  
+
+  package { "vim-gtk":
+    ensure => "installed",
+    require => Package["vim-nox"]
+  }
+
+  package { "gparted":
+    ensure => "installed",
+  }
+
   file { "/etc/X11/Xsession.d/20x11-host-specific":
     ensure => "present",
     source => [

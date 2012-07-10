@@ -16,6 +16,7 @@ class base {
   package { "augeas-tools": ensure => "installed"}
   package { "zip": ensure => "installed"}
   package { "unzip": ensure => "installed"}
+  package { "ack-grep": ensure => "installed"}
   package { "hiera":
     provider => "gem",
     ensure => "installed"
