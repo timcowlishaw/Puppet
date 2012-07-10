@@ -6,7 +6,7 @@ class x {
   package {"xserver-common":
     ensure => "installed",
   }
-  
+
   package {"xserver-xorg":
     ensure => "installed",
   }
@@ -14,7 +14,7 @@ class x {
   package {"ncurses-term":
     ensure => "installed",
   }
-  
+
   package {"rxvt-unicode-256color":
     ensure => "installed",
   }
@@ -30,7 +30,7 @@ class x {
   package { "trayer":
     ensure => "installed",
  }
-  
+
   package { "parcellite":
     ensure => "installed",
   }
@@ -42,21 +42,30 @@ class x {
   package { "slim":
     ensure => "installed",
   }
-  
+
   package { "xscreensaver":
     ensure => "installed",
   }
-  
+
   package { "pcmanfm":
     ensure => "installed",
   }
-  
+
   package { "lxappearance":
     ensure => "installed",
   }
-  
+
+  package { "ttf-mscorefonts-installer":
+    ensure => "installed",
+  }
+
   package { "chromium-browser":
     ensure => "installed",
+  }
+
+  package { "flashplugin-nonfree":
+    ensure => "installed",
+    require => Package["chromium-browser"]
   }
 
   package { "vim-gtk":
@@ -78,6 +87,8 @@ class x {
     group => "root",
     mode => "644",
   }
-}	
+
+  Class['base'] -> Class['x']
+}
 
 
