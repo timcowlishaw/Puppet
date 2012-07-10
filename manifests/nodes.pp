@@ -14,6 +14,7 @@ node 'cascade' inherits default {
   include spotify
   include mysql
   include rvm
+  include marblemouse
 }
 
 node 'motueka' inherits default {
