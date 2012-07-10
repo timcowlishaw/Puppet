@@ -24,6 +24,7 @@ node 'motueka' inherits default {
   include audio
   include spotify
   include mysql
+  include thinkpad-wifi
  # include ssd
  # include python
  # include haskell
