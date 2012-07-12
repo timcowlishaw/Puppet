@@ -15,6 +15,7 @@ node 'cascade' inherits default {
   include mysql
   include rvm
   include marblemouse
+  include virtualbox
 }
 
 node 'motueka' inherits default {
