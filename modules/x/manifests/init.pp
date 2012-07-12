@@ -77,6 +77,10 @@ class x {
     ensure => "installed",
   }
 
+  package { "libreoffice": ensure => "installed"}
+
+  package { "libreoffice-l10n-en-gb": ensure => "installed"}
+
   class { 'dropbox':
     user     => 'tim',
   }
