@@ -46,11 +46,6 @@ class tim {
     require => Exec["clone_dotfiles_repo"],
   }
 
-  #class { 'dropbox':
-  #  user     => 'tim',
-  #  dropbox_user     => hiera('username'),
-  #  dropbox_password => hiera('password'),
-  #}
   Class['ruby'] -> Class['tim']
   Class['base'] -> Class['tim']
 }

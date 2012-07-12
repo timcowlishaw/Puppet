@@ -77,6 +77,10 @@ class x {
     ensure => "installed",
   }
 
+  class { 'dropbox':
+    user     => 'tim',
+  }
+
   file { "/etc/X11/Xsession.d/20x11-host-specific":
     ensure => "present",
     source => [

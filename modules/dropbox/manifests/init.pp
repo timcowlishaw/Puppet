@@ -1,7 +1,5 @@
 class dropbox(
   $user = undef,
-  $dropbox_user = undef,
-  $dropbox_password = undef
 ) {
 
   $download_arch = $::architecture ? {
@@ -16,7 +14,7 @@ class dropbox(
 
   exec { 'download-dropbox-cli':
     command => "/usr/bin/wget -O /tmp/dropbox.py \"https://www.dropbox.com/download?dl=packages/dropbox.py\"",
-    unless  => '/usr/bin/test -f /tmp/dropbox.py'
+    unless  => '/usr/bin/test -f /usr/local/bin/dropbox'
   }
 
   file { '/usr/local/bin/dropbox':
@@ -42,39 +40,10 @@ class dropbox(
     require => Exec['install-dropbox'],
   }
 
-  file { '/etc/init.d/dropbox':
-    source => "puppet:///modules/dropbox/etc/init.d/dropbox",
-    owner  => root,
-    group  => root,
-    mode   => 755,
-  }
-
-  file { '/tmp/authorize.rb':
-    source => "puppet:///modules/dropbox/authorize.rb",
-    owner => $user,
-    group => $user,
-    mode => 700,
-  }
-
-  exec { 'authorize-dropbox':
-    command => "/tmp/authorize.rb ${user} ${dropbox_user} ${dropbox_password}",
+  exec { '/usr/local/bin/dropbox autostart y':
     user => $user,
-    group => 'dropbox',
-    unless => "/usr/bin/test -f /home/${user}/.dropox/sigstore.dbx",
-    creates => "/home/${user}/.dropbox/sigstore.dbx",
-    require => File['/tmp/authorize.rb'],
-    before => Service['dropbox']
-  }
-
-  file { '/tmp/authorization.rb':
-    ensure  => 'absent',
-    require => Exec['authorize-dropbox'],
-  }
-
-  service { 'dropbox':
-    ensure  => 'running',
-    enable => 'true',
-    require => File['/etc/init.d/dropbox']
+    group => $user,
+    require => Exec['install-dropbox']
   }
 
   Class['base'] -> Class['dropbox']
