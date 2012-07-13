@@ -1,0 +1,5 @@
+#!/bin/sh -e
+command -v run-parts > /dev/null || exit 0
+[ -d /etc/rc.local.d ] || exit 0
+exec run-parts /etc/rc.local.d
+exit 0

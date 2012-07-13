@@ -29,5 +29,19 @@ class base {
     provider => "gem",
     ensure => "installed"
   }
+
+  file { "/etc/rc.local.d":
+    ensure => "directory",
+    owner => "root",
+    group => "root",
+    mode => "755",
+  }
+  file { "/etc/rc.local":
+    ensure => "present",
+    source => "puppet:///modules/base/rc.local",
+    owner => "root",
+    group => "root",
+    mode => "755",
+  }
 }
 
