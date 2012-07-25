@@ -40,7 +40,7 @@ class dropbox(
     require => Exec['install-dropbox'],
   }
 
-  exec { '/usr/local/bin/dropbox autostart y':
+  exec { '/usr/local/bin/dropbox autostart y || true':
     user => $user,
     group => $user,
     require => Exec['install-dropbox']
