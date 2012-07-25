@@ -73,6 +73,14 @@ class x {
     require => Package["vim-nox"]
   }
 
+  package { "evince":
+    ensure => "installed",
+  }
+
+  package { "vlc":
+    ensure => "installed",
+  }
+
   package { "gparted":
     ensure => "installed",
   }
