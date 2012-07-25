@@ -27,8 +27,8 @@ node 'motueka' inherits default {
   include mysql
   include thinkpad-wifi
   include disable-bell
+  include python-dev
  # include ssd
- # include python
  # include haskell
  # include rythmbox
  # include vlc
