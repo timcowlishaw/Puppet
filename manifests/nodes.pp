@@ -18,6 +18,7 @@ node 'cascade' inherits default {
   include virtualbox
   include python-dev
   include python-sci
+  include phantomjs
 }
 
 node 'motueka' inherits default {

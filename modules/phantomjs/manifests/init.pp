@@ -1,0 +1,32 @@
+class phantomjs {
+  $download_arch = $::architecture ? {
+    'i386' => 'i686',
+    'x86_64' => 'x86_64',
+    'amd64' => 'x86_64'
+  }
+
+  exec { 'download-phantomjs':
+    command => "/usr/bin/wget -O /tmp/phantomjs.tar.bz2 \"http://phantomjs.googlecode.com/files/phantomjs-1.6.1-linux-${download_arch}-dynamic.tar.bz2\"",
+    unless => "/usr/bin/test -L /usr/local/phantomjs"
+  }
+
+  exec { 'install-phantomjs':
+    command => "/bin/tar -xjf /tmp/phantomjs.tar.bz2 -C /usr/local",
+    unless => "/usr/bin/test -d /usr/local/phantomjs-1.6.1-linux-${download_arch}-dynamic",
+    require => Exec['download-phantomjs']
+  }
+
+  exec { 'symlink-phantomjs':
+    command => "/bin/ln -s /usr/local/phantomjs-1.6.1-linux-${download_arch}-dynamic /usr/local/phantomjs",
+    unless => "/usr/bin/test -L /usr/local/phantomjs",
+    require => Exec['install-phantomjs']
+}
+
+  exec { 'symlink-phantomjs-executable':
+    command  => "/bin/ln -s /usr/local/phantomjs/bin/phantomjs /usr/local/bin/phantomjs",
+    unless  => "/usr/bin/test -L /usr/bin/phantomjs",
+    require => Exec['symlink-phantomjs']
+  }
+
+  Class['base'] -> Class['phantomjs']
+}
