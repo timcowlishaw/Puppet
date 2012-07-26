@@ -89,6 +89,8 @@ class x {
 
   package { "libreoffice-l10n-en-gb": ensure => "installed"}
 
+  package { "gqview": ensure => "installed"}
+
   class { 'dropbox':
     user     => 'tim',
   }
