@@ -44,10 +44,8 @@ node 'motueka' inherits default {
  # include mendeley
  # include gimp
  # include gmpc
- # include printing
  # include postgresql
  # include sqlite
  # include redis
  # include skype
- # include transmission
 }

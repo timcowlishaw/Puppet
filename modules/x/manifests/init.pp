@@ -91,6 +91,8 @@ class x {
 
   package { "gqview": ensure => "installed"}
 
+  package { "transmission": ensure => "installed"}
+
   class { 'dropbox':
     user     => 'tim',
   }
