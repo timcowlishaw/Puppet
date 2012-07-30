@@ -34,8 +34,8 @@ node 'motueka' inherits default {
   include python-dev
   include virtualbox
  # include ssd
+  include rhythmbox
  # include haskell
- # include rythmbox
  # include java
  # include shotwell
  # include mendeley
