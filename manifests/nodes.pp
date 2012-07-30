@@ -33,8 +33,11 @@ node 'motueka' inherits default {
   include disable-bell
   include python-dev
   include virtualbox
- # include ssd
   include rhythmbox
+  class {'ssd':
+    device => "402be511-9f01-444f-978d-e5689bada738"
+  }
+ # include syntaptics
  # include haskell
  # include java
  # include shotwell
