@@ -37,7 +37,7 @@ node 'motueka' inherits default {
   class {'ssd':
     device => "402be511-9f01-444f-978d-e5689bada738"
   }
- # include syntaptics
+  include synaptics
  # include haskell
  # include java
  # include shotwell
