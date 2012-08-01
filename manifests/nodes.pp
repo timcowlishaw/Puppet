@@ -38,10 +38,11 @@ node 'motueka' inherits default {
     device => "402be511-9f01-444f-978d-e5689bada738"
   }
   include synaptics
+  include mendeley
   include shotwell
  # include haskell
  # include java
- # include mendeley
+ # inlude scala
  # include gimp
  # include gmpc
  # include postgresql
