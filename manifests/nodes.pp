@@ -16,9 +16,12 @@ node 'cascade' inherits default {
   include rvm
   include marblemouse
   include virtualbox
+  include printing
   include python-dev
   include python-sci
   include phantomjs
+  include sun-java
+  include android-dev
 }
 
 node 'motueka' inherits default {
