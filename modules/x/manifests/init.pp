@@ -93,6 +93,8 @@ class x {
 
   package { "transmission": ensure => "installed"}
 
+  package { "iceweasel": ensure => "installed"}
+
   class { 'dropbox':
     user     => 'tim',
   }
