@@ -37,6 +37,7 @@ node 'motueka' inherits default {
   include python-dev
   include virtualbox
   include rhythmbox
+  include postgresql
   class {'ssd':
     device => "402be511-9f01-444f-978d-e5689bada738"
   }
