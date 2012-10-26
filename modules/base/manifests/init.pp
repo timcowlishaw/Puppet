@@ -13,6 +13,7 @@ class base {
   package { "curl": ensure => "installed" }
   package { "wget": ensure => "installed" }
   package { "vim-nox": ensure => "installed" }
+  package { "exuberant-ctags": ensure => "installed" }
   package { "augeas-tools": ensure => "installed"}
   package { "zip": ensure => "installed"}
   package { "unzip": ensure => "installed"}
