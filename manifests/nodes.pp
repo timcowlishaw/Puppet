@@ -22,6 +22,7 @@ node 'cascade' inherits default {
   include phantomjs
   include sun-java
   include android-dev
+  include mendeley
 }
 
 node 'motueka' inherits default {
