@@ -45,13 +45,7 @@ node 'motueka' inherits default {
   include synaptics
   include mendeley
   include shotwell
- # include haskell
- # include java
- # inlude scala
- # include gimp
- # include gmpc
- # include postgresql
- # include sqlite
- # include redis
- # include skype
+  include mongodb
+  # include haskell
+  # include sqlite
 }
