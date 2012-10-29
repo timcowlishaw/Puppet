@@ -46,6 +46,7 @@ node 'motueka' inherits default {
   include mendeley
   include shotwell
   include mongodb
+  include elasticsearch
   include wacom
   # include haskell
   # include sqlite
