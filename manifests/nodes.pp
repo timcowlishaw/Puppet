@@ -48,6 +48,7 @@ node 'motueka' inherits default {
   include mongodb
   include elasticsearch
   include wacom
+  include redis
   # include haskell
   # include sqlite
 }
