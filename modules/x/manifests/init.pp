@@ -99,6 +99,10 @@ class x {
     user     => 'tim',
   }
 
+  file {"/etc/X11/xorg.conf.d":
+    ensure => "directory"
+  }
+
   file { "/etc/X11/Xsession.d/20x11-host-specific":
     ensure => "present",
     source => [
