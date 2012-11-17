@@ -13,14 +13,14 @@ class dropbox(
   }
 
   exec { 'download-dropbox-cli':
-    command => "/usr/bin/wget -O /tmp/dropbox.py \"https://www.dropbox.com/download?dl=packages/dropbox.py\"",
+    command => "/usr/bin/wget -O /usr/local/bin/dropbox \"https://www.dropbox.com/download?dl=packages/dropbox.py\"",
     unless  => '/usr/bin/test -f /usr/local/bin/dropbox'
   }
 
   file { '/usr/local/bin/dropbox':
-    source  => '/tmp/dropbox.py',
+    ensure => 'present',
     mode    => 755,
-    require => Exec['download-dropbox-cli']
+    require => Exec['download-dropbox-cli'],
   }
 
   exec { 'download-dropbox':
