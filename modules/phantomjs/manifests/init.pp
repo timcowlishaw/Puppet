@@ -24,9 +24,13 @@ class phantomjs {
 
   exec { 'symlink-phantomjs-executable':
     command  => "/bin/ln -s /usr/local/phantomjs/bin/phantomjs /usr/local/bin/phantomjs",
-    unless  => "/usr/bin/test -L /usr/bin/phantomjs",
+    unless  => "/usr/bin/test -L /usr/local/bin/phantomjs",
     require => Exec['symlink-phantomjs']
   }
 
+  file { "/tmp/phantomjs.tar.bz2":
+    ensure  => 'absent',
+    require => Exec['install-phantomjs'],
+  }
   Class['base'] -> Class['phantomjs']
 }
