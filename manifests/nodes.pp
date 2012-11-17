@@ -6,25 +6,6 @@ node default {
  include tim
 }
 
-
-node 'cascade' inherits default {
-  include x
-  include comms
-  include audio
-  include spotify
-  include mysql
-  include rvm
-  include marblemouse
-  include virtualbox
-  include printing
-  include python-dev
-  include python-sci
-  include phantomjs
-  include sun-java
-  include android-dev
-  include mendeley
-}
-
 node 'motueka' inherits default {
   include comms
   include rvm
