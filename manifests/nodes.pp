@@ -32,6 +32,7 @@ node 'motueka' inherits default {
   include audio
   include spotify
   include mysql
+  include marblemouse
   include thinkpad-wifi
   include thinkpad-power
   include disable-bell
@@ -50,6 +51,9 @@ node 'motueka' inherits default {
   include sun-java
   include wacom
   include redis
+  include phantomjs
+  include nodejs
+  include ctags
   # include haskell
   # include sqlite
 }
