@@ -13,7 +13,7 @@ class nodejs {
 
   exec { 'download-nodejs':
     command => "/usr/bin/wget $url -O /tmp/${filename}.tar.gz",
-    unless => "/usr/bin/test -f /usr/local/bin/nodejs"
+    unless => "/usr/bin/test -f /usr/local/bin/node"
   }
 
   exec { 'untar-nodejs':
