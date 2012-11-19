@@ -21,19 +21,21 @@ class ssd(
   }
 
   augeas { "ssd-noatime":
-    context => "/files/etc/fstab/*[spec='UUID=${device}' and ./opt/* !='noatime']",
+    context => "/files/etc/fstab/*[spec='UUID=${device}']",
     changes => [
       "ins opt after opt[last()]",
       "set opt[last()] noatime"
-    ]
+    ],
+    onlyif => "match ./opt[.='noatime'] size == 0"
   }
 
   augeas { "ssd-trim":
-    context => "/files/etc/fstab/*[spec='UUID=${device}' and ./opt/* !='discard']",
+    context => "/files/etc/fstab/*[spec='UUID=${device}']",
     changes => [
       "ins opt after opt[last()]",
       "set opt[last()] discard"
-    ]
+    ],
+    onlyif => "match ./opt[.='discard'] size == 0"
   }
 
   $scheduler_line = "ENV{ID_FS_UUID}==\\\"${device}\\\", ATTR{../queue/scheduler}=\\\"noop\\\""
