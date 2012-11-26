@@ -19,5 +19,5 @@ class postgis::proj {
     unless => "/usr/bin/test -f /usr/local/lib/libproj.so.0",
   }
 
-  Class["postgis::prereq_packages"] -> Class["postgis::proj"]
+  Class["postgis::geos"] -> Class["postgis::proj"]
 }
