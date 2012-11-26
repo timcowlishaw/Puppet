@@ -21,6 +21,7 @@ node 'motueka' inherits default {
   include virtualbox
   include rhythmbox
   include postgresql
+  include postgis
   class {'ssd':
     device => "402be511-9f01-444f-978d-e5689bada738"
   }
