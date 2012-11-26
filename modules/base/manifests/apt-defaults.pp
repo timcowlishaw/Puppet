@@ -14,7 +14,6 @@ class apt-defaults {
   apt::pin {'stable' : priority => 750 }
   apt::pin {'testing': priority => 995 }
   apt::pin {'unstable': priority => -10 }
-  apt::pin {'experimental': priority => -50}
 
   apt::source {'stable-updates':
     location => "http://security.debian.org",
@@ -48,12 +47,4 @@ class apt-defaults {
     repos => "main contrib non-free",
     include_src => true
   }
-
-  apt::source {'experimental':
-    location => "http://ftp.uk.debian.org/debian",
-    release => "unstable",
-    repos => "main contrib non-free",
-    include_src => true
-  }
-
 }
