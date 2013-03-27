@@ -6,18 +6,18 @@ class phantomjs {
   }
 
   exec { 'download-phantomjs':
-    command => "/usr/bin/wget -O /tmp/phantomjs.tar.bz2 \"http://phantomjs.googlecode.com/files/phantomjs-1.6.1-linux-${download_arch}-dynamic.tar.bz2\"",
+    command => "/usr/bin/wget -O /tmp/phantomjs.tar.bz2 \"http://phantomjs.googlecode.com/files/phantomjs-1.7.0-linux-${download_arch}.tar.bz2\"",
     unless => "/usr/bin/test -L /usr/local/phantomjs"
   }
 
   exec { 'install-phantomjs':
     command => "/bin/tar -xjf /tmp/phantomjs.tar.bz2 -C /usr/local",
-    unless => "/usr/bin/test -d /usr/local/phantomjs-1.6.1-linux-${download_arch}-dynamic",
+    unless => "/usr/bin/test -d /usr/local/phantomjs-1.7.0-linux-${download_arch}",
     require => Exec['download-phantomjs']
   }
 
   exec { 'symlink-phantomjs':
-    command => "/bin/ln -s /usr/local/phantomjs-1.6.1-linux-${download_arch}-dynamic /usr/local/phantomjs",
+    command => "/bin/ln -s /usr/local/phantomjs-1.7.0-linux-${download_arch} /usr/local/phantomjs",
     unless => "/usr/bin/test -L /usr/local/phantomjs",
     require => Exec['install-phantomjs']
 }
