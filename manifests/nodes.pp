@@ -18,6 +18,7 @@ node 'motueka' inherits default {
   include thinkpad-power
   include disable-bell
   include python-dev
+  include netflix
   include virtualbox
   include rhythmbox
   include postgresql
