@@ -12,7 +12,7 @@ class virtualbox {
     user => root,
   }
 
-  package {'virtualbox-4.1':
+  package {'virtualbox-4.2':
     ensure => "installed",
     require => [Apt::Source['virtualbox'], Exec['virtualbox-key']]
   }
