@@ -22,6 +22,7 @@ node 'motueka' inherits default {
   include rhythmbox
   include postgresql
   include postgis
+  include racket
   class {'ssd':
     device => "402be511-9f01-444f-978d-e5689bada738"
   }
