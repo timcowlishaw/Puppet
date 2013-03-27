@@ -18,6 +18,8 @@ class base {
   package { "zip": ensure => "installed"}
   package { "unzip": ensure => "installed"}
   package { "ack-grep": ensure => "installed"}
+  package { "mosh": ensure => "installed"}
+  package { "tmux": ensure => "installed"}
   package { "hiera":
     provider => "gem",
     ensure => "installed"

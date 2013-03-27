@@ -39,11 +39,19 @@ class x {
     ensure => "installed",
   }
 
+  package { "exo-utils":
+    ensure => "installed",
+  }
+
   package { "slim":
     ensure => "installed",
   }
 
   package { "xscreensaver":
+    ensure => "installed",
+  }
+
+  package { "xclip":
     ensure => "installed",
   }
 
